@@ -1,9 +1,15 @@
 import React from 'react';
+import {Avatar} from "./Avatar";
 
-export const Profile = () => {
+export const Profile = (props) => {
     return (
-        <div>
-            <h1>Profile etwt</h1>
+        <div className={'profile'}>
+            <Avatar
+                image={props.image}
+                isNew={props.isNew}
+            />
+            <h1>{props.name}</h1>
+            <p>{props.title}</p>
         </div>
     );
 };
