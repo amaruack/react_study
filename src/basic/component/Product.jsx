@@ -1,27 +1,17 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
+import useProduct from "../../hooks/useProduct";
 
 export const Product = () => {
 
     const [checked, setChecked] = useState(false);
-    const [products, setProducts] = useState([]);
+    const [loading, error, products] = useProduct(checked);
 
     const handleChange = () =>{
         setChecked(prevState => !prevState);
     }
 
-    useEffect(() => {
-        fetch(`data/${checked ? 'sales.json': 'products.json'}`)
-            .then(r => r.json() )
-            .then((data) => {
-                console.log('dtaa');
-                setProducts(data);
-            });
-        // unmount 될때 호출 되는 함수
-        return () => {
-            console.log('깨끗이 청소');
-        };
-    }, [checked]);
-
+    if (loading) return <p>Loading...</p>
+    if (error) return <p>{error}</p>
     return (
         <>
             <input id={'checkbox'} type={'checkbox'} value={checked} onChange={handleChange}/>

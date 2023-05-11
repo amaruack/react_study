@@ -1,6 +1,8 @@
 import './App.css';
-import {useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {Product} from "./component/Product";
+import {Loading} from "./component/Loading";
+import useProduct from "../hooks/useProduct";
 
 export default function AppProducts() {
 
@@ -10,9 +12,10 @@ export default function AppProducts() {
         setShow(prevState => !prevState);
     }
     return (
-        <div className={'container'}>
-            {show &&  <Product></Product>}
+        <div className={'container_product'}>
+            {show && <Product></Product>}
             <button onClick={handleClick}>Toggle</button>
         </div>
+
     );
 }

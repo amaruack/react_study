@@ -40,6 +40,11 @@
   justify-content: center;
 }
 
+.container_product {
+  /*display: flex;*/
+  justify-content: center;
+}
+
 .counter {
   display: flex;
   flex-direction: column;
