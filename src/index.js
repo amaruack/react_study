@@ -4,11 +4,12 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {AppCard} from "./AppCard";
 import AppTheme from "./AppTheme";
+import AppMentorsButton from "./AppMentorsButton";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AppTheme />
+    <AppMentorsButton />
   </React.StrictMode>
 );
 
